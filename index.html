@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heart in a Link 🎀</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --blush: #fce4ec;
+            --rose-gold: #e5b3a4;
+            --deep-love: #d81b60;
+            --glass: rgba(255, 255, 255, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f6 0%, #fce4ec 100%);
+            color: #5d4037;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* 💖 Romantic background hearts */
+#memories::before {
+    content: ;
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    font-size: 40px;
+    opacity: 0.08;
+    line-height: 80px;
+    white-space: wrap;
+    animation: floatBg 25s linear infinite;
+}
+
+@keyframes floatBg {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50%); }
+}
+
+        /* Background Magic */
+        .bg-elements {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--blush); }
+        ::-webkit-scrollbar-thumb { background: var(--rose-gold); border-radius: 10px; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            display: flex; justify-content: center; align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            z-index: 1000; gap: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        nav a {
+            text-decoration: none; color: var(--deep-love);
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+            text-transform: uppercase; transition: 0.3s;
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh; padding: 100px 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative;
+        }
+
+        .title-font { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--deep-love); margin-bottom: 20px; text-align: center; }
+        
+        /* 1. Hero Section */
+        #home { background: url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1500&q=80') center/cover; }
+        .hero-overlay {
+            background: rgba(255, 245, 246, 0.8);
+            padding: 40px; border-radius: 30px; text-align: center;
+            backdrop-filter: blur(5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* 2. Audio Card */
+        .music-card {
+            background: white; padding: 20px; border-radius: 50px;
+            display: flex; align-items: center; gap: 20px;
+            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.2);
+            margin-top: 30px; border: 1px solid var(--blush);
+        }
+
+        /* 3. Memory Wall */
+        .memory-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px;
+        }
+        .memory-box {
+            width: 280px; height: 380px; background: white; padding: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.5s;
+            border-bottom: 40px solid white; border-radius: 5px;
+        }
+        .memory-box:hover { transform: translateY(-15px) rotate(2deg); }
+        .memory-box img { width: 100%; height: 300px; object-fit: cover; }
+        .memory-box p { font-family: 'Dancing Script', cursive; font-size: 1.5rem; text-align: center; margin-top: 10px; }
+
+        /* --- 4. SHAYRI SECTION STYLES --- */
+        .shayri-container {
+            max-width: 1000px; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+        }
+        .shayri-card {
+            background: white; padding: 30px 20px; border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.05);
+            border-left: 5px solid var(--rose-gold);
+            text-align: center; transition: 0.3s;
+        }
+        .shayri-card:hover { transform: scale(1.03); background: #fffcfd; }
+        .shayri-card p { font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #5d4037; line-height: 1.4; }
+
+        /* 5. Apology Letter */
+        .letter-container {
+            max-width: 800px; background: #fffcf9; padding: 60px;
+            border-radius: 10px; line-height: 2; font-size: 1.1rem;
+            box-shadow: 20px 20px 0px var(--rose-gold); position: relative;
+        }
+        .letter-container::after { content: '💌'; position: absolute; bottom: -30px; right: 20px; font-size: 3rem; }
+
+        /* 6. FORGIVE SECTION */
+        .decision-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px); padding: 50px; border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(216, 27, 96, 0.2);
+            text-align: center; max-width: 600px; width: 100%; border: 2px solid #fff;
+        }
+
+        #main-msg { font-size: 1.4rem; color: #5d4037; margin-bottom: 40px; min-height: 80px; font-weight: 600; }
+        .btn-group { display: flex; justify-content: center; gap: 20px; position: relative; min-height: 60px; }
+        .btn { padding: 15px 40px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: 0.3s; }
+        .btn-yes { background: var(--deep-love); color: white; box-shadow: 0 10px 20px rgba(216, 27, 96, 0.3); }
+        .btn-no { background: #eee; color: #777; position: relative; z-index: 10; }
+
+        #success-area { display: none; }
+        .success-text { font-size: 1.5rem; color: var(--deep-love); font-weight: 700; line-height: 1.6; }
+
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        .floating-icon { animation: float 4s infinite ease-in-out; font-size: 2rem; }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-elements" id="bg"></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#music">Song</a>
+        <a href="#memories">Memories</a>
+        <a href="#shayri">Shayri</a>
+        <a href="#apology">Letter</a>
+        <a href="#forgive">Forgive?</a>
+    </nav>
+
+    <section id="home">
+        <div class="hero-overlay animate__animated animate__fadeIn">
+            <p style="letter-spacing: 5px; font-weight: 300;">FOR MY EVERYTHING</p>
+            <h1 class="title-font">I'm Sorry, Mari Radha</h1>
+            <p style="max-width: 500px; margin: 0 auto; color: #888;">Aa website khali website nathi… aa mara dil ni sachchai ane tari mate no prem che. Please pachhi avi ja Radha… hu tara vagar adhuro chu ❤️</p>
+            <div class="floating-icon" style="margin-top: 30px;">🌸</div>
+        </div>
+    </section>
+<section id="music">
+    <h2 class="title-font">The Soundtrack of Us</h2>
+
+    <!-- SONG 1 (UPDATED) -->
+    <div class="music-card">
+        <div style="background: var(--deep-love); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">▶</div>
+        <div>
+            <p><strong>તું હાયે હાલી આવે</strong></p>
+            <p style="font-size: 0.8rem; color: #999;">Mari vibe tari sathe Dikuu..❤️</p>
+        </div>
+        <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/6yJd85YdVkuvpxKtZwL8Ij" 
+            width="300" height="80" frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+    <!-- SONG 2 -->
+    <div class="music-card">
+        <div style="background: var(--deep-love); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">▶</div>
+        <div>
+            <p><strong>મને મળજે</strong></p>
+            <p style="font-size: 0.8rem; color: #999;">Aa song mara bachaa mate🥺</p>
+        </div>
+        <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/67U1nOpkcZ6zcmitwEC7oi" 
+            width="300" height="80" frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+</section>
+<section id="memories" style="
+    background: linear-gradient(135deg, #ffe6eb 0%, #ffd6e0 50%, #fff0f5 100%);
+    position: relative;
+    overflow: hidden;
+">
+        <h2 class="title-font">Moments I Treasure</h2>
+        <div class="memory-container">
+            <div class="memory-box"><img src="https://github.com/dctours1116-art/radhu-love-kanu/blob/ca4ff30ff8e57410227e878e6a6113a03f8444e5/photo1.jpg" alt=""><p>Mari Radha🤌🎀</p></div>
+            <div class="memory-box" style="transform: rotate(-2deg);"><img src="https://github.com/dctours1116-art/radhu-love-kanu/blob/ca4ff30ff8e57410227e878e6a6113a03f8444e5/photo2.JPG" alt=""><p>Best Moment Together 💕</p></div>
+            <div class="memory-box" style="transform: rotate(3deg);"><img src="https://github.com/dctours1116-art/radhu-love-kanu/blob/ca4ff30ff8e57410227e878e6a6113a03f8444e5/photo3.jpg" alt=""><p>Eyes I love 🥺</p></div>
+            <div class="memory-box"><img src="https://github.com/dctours1116-art/radhu-love-kanu/blob/ca4ff30ff8e57410227e878e6a6113a03f8444e5/photo4.jpg" alt=""><p>Forever Us 💖</p></div>
+        </div>
+    </section>
+
+    <section id="shayri">
+        <h2 class="title-font">Dil Ni Vaat...Mari Suhani Mate 🥹</h2>
+        <div class="shayri-container">
+            <div class="shayri-card animate__animated animate__fadeInLeft">
+                <p>"Tari ek smile mate hu badhu j jatu karu,<br>Tu kahe to aa aakhi duniya ne pan bhuli javu."</p>
+            </div>
+            
+            <div class="shayri-card animate__animated animate__fadeInUp" style="border-left-color: #ff8a80;">
+                <p>"Jivan na darak rasta par tari sathe chalvu che,<br>Tu ruse to tane manavi ne fari prem karvu che."</p>
+            </div>
+
+            <div class="shayri-card animate__animated animate__fadeInUp" style="border-left-color: #ffb3c1;">
+                <p>"Duniya mate tu ek vyakti hashe,<br>Pan mara mate toh tu aakhi duniya che."</p>
+            </div>
+
+            <div class="shayri-card animate__animated animate__fadeInUp" style="border-left-color: var(--deep-love);">
+                <p>"Radha vagar Kanu adhuro che,<br>Ane tari maafi vagar maro prem adhuro che."</p>
+            </div>
+
+            <div class="shayri-card animate__animated animate__fadeInDown" style="border-left-color: #e5b3a4;">
+                <p>"Prem toh badha kare che,<br>Pan tari jem mane koi khijai sake ae prem j alag che."</p>
+            </div>
+
+            <div class="shayri-card animate__animated animate__fadeInRight">
+                <p>"Bhul mari hati, pan yaad tari aavti hati,<br>Sacho prem kyan kyarey khatam thai che?"</p>
+            </div>
+        </div>
+        <div class="floating-icon" style="margin-top: 50px;">💖</div>
+    </section>
+
+    <section id="apology">
+        <div class="letter-container">
+            <h2 class="title-font" style="font-size: 2.5rem; text-align: left;">Dearest Radha,</h2>
+            <p>
+                Hu dil thi sorry chu 💔<br>
+                Mane khabar che ke hu galat hato… hu gusse ma badhu boli didhu ane tane samjya vagar react kari didhu. Mane samajvu joiye htu ke tu periods ma hati ane tane support joiye hato, maro guso nai.
+                <br><br>
+                Sachu kav to aa 1 week tara vagar rehvu bav mushkil htu… dar roj bas tari yaad aavti hati. Message nai karyo pan eno matlab ae nathi ke mane farak nathi padto. Hu bas realize karto hato ke mari Radha mari life ma ketli important che ❤️
+                <br><br>
+                Mane khabar che ke hu tane hurt kari didhi… ane ena mate hu truly sorry chu. Please mane ek chance aap, hu promise karu chu ke have thi tane vadhare samajis, especially jyare tane mari jarur hoy.
+                <br><br>
+                Tu mari habit nathi… tu mari life che. Ane hu tane khovva nathi mangto.
+                <br><br>
+                Sorry again Radha… please pachhi avi ja 🥺
+                <br><br>
+                Always yours,<br>
+                <strong>Your Kanu</strong>
+            </p>
+        </div>
+    </section>
+
+    <section id="forgive">
+        <div class="decision-card animate__animated animate__fadeInUp">
+            <div id="interactive-content">
+                <h2 class="title-font" style="font-size: 2.5rem;">One Last Thing...</h2>
+                <div id="main-msg">Will you forgive your Kanu? 🥺</div>
+                <div class="btn-group">
+                    <button class="btn btn-yes" onclick="forgiveDone()">YES</button>
+                    <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">NO</button>
+                </div>
+            </div>
+
+            <div id="success-area" class="animate__animated animate__zoomIn">
+                <div style="font-size: 5rem; margin-bottom: 20px;">❤️</div>
+                <p class="success-text">
+                    THANKYOU MARI BABU!<br>
+                    MANDE KHABER HATI TU MANI JAIS...<br>
+                    THANKYOU MEDAMJI! 🌸
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const bg = document.getElementById('bg');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💗';
+            heart.style.position = 'absolute';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.opacity = Math.random();
+            heart.style.transition = 'transform 10s linear';
+            bg.appendChild(heart);
+            setTimeout(() => { heart.style.transform = `translateY(-110vh) rotate(${Math.random() * 360}deg)`; }, 100);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createHeart, 300);
+
+        let clickCount = 0;
+        const noBtn = document.getElementById('noBtn');
+        const msgArea = document.getElementById('main-msg');
+
+        function moveNoButton() {
+            clickCount++;
+            
+            if (clickCount === 1) { 
+                msgArea.innerHTML = "PLEASE BABY MAF KARDO... 🥺"; 
+            } 
+            else if (clickCount === 2) { 
+                msgArea.innerHTML = "pleasee dudu pelu song sambhal... 🎵"; 
+            }
+            else if (clickCount === 3) { 
+                msgArea.innerHTML = "PLEASE THINK AGAIN!<br>SU THASE TARA KANU NU? 😭"; 
+            } 
+            else if (clickCount >= 4) { 
+                msgArea.innerHTML = "PLEASE THINK AGAIN MY BABY...<br>DONT PANIC MY BACHA🎀! ❤️"; 
+            }
+
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function forgiveDone() {
+            document.getElementById('interactive-content').style.display = 'none';
+            document.getElementById('success-area').style.display = 'block';
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#d81b60', '#ffb3c1', '#ffffff'] });
+        }
+    </script>
+</body>
+</html>
